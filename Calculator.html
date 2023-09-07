@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculator</title>
+  <style>
+    body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+	}
+    table {
+      border-collapse: collapse;
+      margin: auto;
+    }
+    
+    td {
+      width: 50px;
+      height: 50px;
+      border: 1px solid #0e0c0c;
+      text-align: center;
+      cursor: pointer;
+    }
+    
+    #screen {
+      width: 200px;
+      height: 30px;
+      border: none;
+      text-align: right;
+      padding: 5px;
+      margin: 10px auto;
+      font-size: 18px;
+      background-color: #ffffff;
+    }
+    
+    .operator {
+      background-color: #ff9800;
+    }
+    
+    .equal {
+      background-color: #4caf50;
+      
+    }
+
+    .button {
+      background-color: #ececec;
+    }
+
+    .clear-button {
+      background-color: rgba(28, 47, 255, 0.758);
+      color: azure;
+    }
+
+    .operator:hover {
+      background-color: #ffbf1e;
+      transform: scale(1);
+
+    }
+
+    .button:hover {
+      background-color: #cdcdcd;
+      transform: scale(1);
+    }
+
+    .equal:hover {
+      background-color: #56f004;
+      transform: scale(1);
+    }
+
+    .clear-button:hover {
+      background-color: #002ee8;
+      transform: scale(1);
+    }
+
+
+
+  </style>
+</head>
+<body>
+  <table>
+    <tr>
+      <td colspan="4"><input type="text" id="screen" readonly></td>
+    </tr>
+    <tr>
+      <td class="button" onclick="appendToScreen(7)">7</td>
+      <td class="button" onclick="appendToScreen(8)">8</td>
+      <td class="button" onclick="appendToScreen(9)">9</td>
+      <td class="operator" onclick="appendToScreen('/')">/</td>
+    </tr>
+    <tr>
+      <td class="button" onclick="appendToScreen(4)">4</td>
+      <td class="button" onclick="appendToScreen(5)">5</td>
+      <td class="button" onclick="appendToScreen(6)">6</td>
+      <td class="operator" onclick="appendToScreen('*')">*</td>
+    </tr>
+    <tr>
+      <td class="button" onclick="appendToScreen(1)">1</td>
+      <td class="button" onclick="appendToScreen(2)">2</td>
+      <td class="button" onclick="appendToScreen(3)">3</td>
+      <td class="operator" onclick="appendToScreen('-')">-</td>
+    </tr>
+    <tr>
+      <td class="button" onclick="appendToScreen(0)">0</td>
+      <td class="button" onclick="appendToScreen('.')">.</td>
+      <td class="clear-button" onclick="clearScreen()">AC</td>
+      <td class="operator" onclick="appendToScreen('+')">+</td>
+    </tr>
+    <tr>
+      <td colspan="4" class="equal" onclick="calculate()">=</td>
+    </tr>
+  </table>
+
+  <script>
+    let screen = document.getElementById('screen');
+    
+    function appendToScreen(value) {
+      screen.value += value;
+    }
+    
+    function clearScreen() {
+      screen.value = '';
+    }
+    
+    function calculate() {
+      let result = eval(screen.value);
+      screen.value = result;
+    }
+  </script>
+</body>
+</html>
